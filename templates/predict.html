@@ -1,0 +1,34 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="page-narrow">
+<div class="view-card">
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for cat,msg in messages %}
+<div class="alert alert-{{cat}}">{{msg}}</div>
+{% endfor %}
+{% endwith %}
+
+<h2 class="brand-title">Patient Analysis</h2>
+<p class="subtitle">Upload lesion image and fill patient details.</p>
+
+<form method="POST" enctype="multipart/form-data" class="form-grid">
+<div>
+<label class="field-label" for="name">Patient Name</label>
+<input id="name" class="modern-input" type="text" name="name" placeholder="e.g. Sara Ahmed" required>
+</div>
+<div>
+<label class="field-label" for="age">Age</label>
+<input id="age" class="modern-input" type="number" name="age" placeholder="e.g. 24" required>
+</div>
+<div>
+<label class="field-label" for="image">Lesion Image</label>
+<input id="image" class="modern-file" type="file" name="image" required>
+</div>
+
+<button class="btn-modern btn-success-modern">Analyze</button>
+<a class="btn btn-modern btn-soft" href="/dashboard">Back to Dashboard</a>
+</form>
+</div>
+</div>

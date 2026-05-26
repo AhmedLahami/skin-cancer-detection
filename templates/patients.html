@@ -1,0 +1,41 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="page">
+<div class="view-card">
+<div class="topbar">
+    <div>
+        <h2 class="brand-title">Patients List</h2>
+        <p class="subtitle">History of submitted analyses.</p>
+    </div>
+    <a class="btn btn-modern btn-primary-modern" href="/dashboard">Back to Dashboard</a>
+</div>
+
+<div class="table-wrap">
+<table class="modern-table">
+<tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Result</th>
+    <th>Probability</th>
+    <th>Image</th>
+</tr>
+
+{% for p in patients %}
+<tr>
+    <td>{{ p.name }}</td>
+    <td>{{ p.age }}</td>
+    <td>{{ p.result }}</td>
+    <td>{{ (p.probability * 100) | round(2) }}%</td>
+    <td><img src="{{ p.image_path }}" class="thumb" alt="Patient image"></td>
+</tr>
+{% else %}
+<tr>
+    <td colspan="5" class="empty-state">No patient records yet. Submit a new analysis to populate this table.</td>
+</tr>
+{% endfor %}
+
+</table>
+</div>
+</div>
+</div>

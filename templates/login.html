@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<div class="page-narrow">
+<div class="view-card">
+<h2 class="brand-title text-center">Skin Cancer Assistant</h2>
+<p class="subtitle text-center">Login to access dashboard and analysis pages.</p>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% for cat,msg in messages %}
+<div class="alert alert-{{cat}}">{{msg}}</div>
+{% endfor %}
+{% endwith %}
+
+<form method="POST" class="form-grid">
+<div>
+<label class="field-label" for="username">Username</label>
+<input id="username" class="modern-input" type="text" name="username" placeholder="Enter your username" required>
+</div>
+<div>
+<label class="field-label" for="password">Password</label>
+<input id="password" class="modern-input" type="password" name="password" placeholder="Enter your password" required>
+</div>
+<button type="submit" class="btn-modern btn-primary-modern">Login</button>
+</form>
+
+</div>
+</div>

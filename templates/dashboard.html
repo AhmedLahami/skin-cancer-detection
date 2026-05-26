@@ -1,0 +1,20 @@
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<div class="page">
+<div class="view-card">
+<div class="topbar">
+    <div>
+        <h2 class="brand-title">Dashboard</h2>
+        <p class="subtitle">Choose an action to continue your project workflow.</p>
+    </div>
+</div>
+
+<div class="actions">
+<a class="btn btn-modern btn-success-modern" href="/predict">New Analysis</a>
+<a class="btn btn-modern btn-soft" href="/patients">Patients List</a>
+<a class="btn btn-modern btn-danger-modern" href="/logout">Logout</a>
+</div>
+</div>
+</div>
